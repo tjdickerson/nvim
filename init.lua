@@ -67,10 +67,10 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
-vim.opt.tabstop = 4       -- A TAB character is 4 spaces wide visually
-vim.opt.shiftwidth = 4    -- Indentation amount used for autoindent and Shift-based indenting
-vim.opt.softtabstop = 4   -- Number of spaces a <Tab> counts for in Insert mode
-vim.opt.expandtab = true  -- Inserts spaces when the <Tab> key is pressed
+vim.opt.tabstop = 4 -- A TAB character is 4 spaces wide visually
+vim.opt.shiftwidth = 4 -- Indentation amount used for autoindent and Shift-based indenting
+vim.opt.softtabstop = 4 -- Number of spaces a <Tab> counts for in Insert mode
+vim.opt.expandtab = true -- Inserts spaces when the <Tab> key is pressed
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -452,11 +452,12 @@ require('lazy').setup({
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
-          map('grd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+
+          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
-          map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
@@ -784,7 +785,7 @@ require('lazy').setup({
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       ---@diagnostic disable-next-line: missing-fields
-      require('tjd_theme')
+      require 'tjd_theme'
 
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
