@@ -82,8 +82,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
-vim.keymap.set('n', '<leader>j', '<cmd>vsplit<CR>', { desc = 'Vertical Split' })
-vim.keymap.set('n', '<leader>l', '<cmd>split<CR>', { desc = 'Vertical Split' })
+vim.keymap.set('n', '<leader>j', '<cmd>split<CR>', { desc = 'Split Down' })
+vim.keymap.set('n', '<leader>l', '<cmd>vsplit<CR>', { desc = 'Split Right' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -584,6 +584,8 @@ require('lazy').setup({
         -- ts_ls = {},
         --
 
+        wc_ls = {},
+
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -860,6 +862,17 @@ require('lazy').setup({
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
 
+  {
+    'jiaoshijie/undotree',
+    ---@module 'undotree.collector'
+    ---@type UndoTreeCollector.Opts
+    opts = {
+      -- your options
+    },
+    keys = { -- load the plugin only when using it's keybinding:
+      { '<leader>u', "<cmd>lua require('undotree').toggle()<cr>" },
+    },
+  },
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
