@@ -921,5 +921,26 @@ require('lazy').setup({
   },
 })
 
+vim.o.guifont = "JetBrains Mono:h14"
+vim.api.nvim_set_hl(0, 'Cursor', { bg = '#A04040', fg = '#502020' })
+vim.opt.guicursor = "a:block-Cursor,a:blinkwait500-blinkon500-blinkoff500"
+
+vim.api.nvim_set_current_dir("~/")
+
+
+if vim.g.neovide then
+    vim.g.neovide_cursor_animation_length = 0
+    vim.g.neovide_cursor_trail_size = 0
+    vim.g.neovide_scroll_animation_length = 0
+
+    vim.g.neovide_cursor_vfx_mode = ""
+
+    vim.opt.linespace = 2
+    vim.g.neovide_text_gamma = 0.0
+    vim.g.neovide_text_contrast = 0.5
+
+    vim.g.neovide_cursor_bg_color = '#A04040'
+    vim.g.neovide_cursor_fg_color = '#502020'
+end
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
